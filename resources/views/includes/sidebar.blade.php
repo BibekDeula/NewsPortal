@@ -2,11 +2,13 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('home')}}" class="brand-link">
-        <img src="{{asset('backend/dist/img/AdminLTELogo.png')}}"
+        <img src="https://easysoftware.com.np/image/logo.png"
              alt="AdminLTE Logo"
-             class="brand-image img-circle elevation-3"
+{{--             class="brand-image img-circle elevation-3"--}}
+             class="img-thumbnail"
+             width="70" height="60"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">LMS</span>
+        <span class="brand-text font-weight-light"><div>E@sySoftware</div></span>
     </a>
 
     <!-- Sidebar -->
@@ -140,6 +142,7 @@
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-bullhorn"></i>
+
                         <p>
                             Manage Tags
                         </p>

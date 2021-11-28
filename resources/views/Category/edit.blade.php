@@ -28,7 +28,7 @@
 
                 <div class="card-body">
 
-                    <form action="{{route('category.update',$data['row']->id)}}" method='POST' onsubmit="return validateform()" name="myform">
+                    <form action="{{route('category.update',$data['row']->id)}}" method='POST'>
                         <input type="hidden" name="_method" value="PUT"/>
                         @csrf
                         <div class="form-group">
