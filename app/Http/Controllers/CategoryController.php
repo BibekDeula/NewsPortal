@@ -37,6 +37,13 @@ class CategorController extends Controller
      */
     public function store(Request $request)
     {
+        $file = $request->file('icon');
+        if ($request->hasFile("icon")) {
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/icon'), $fileName);
+            $request->request->add(['categoryIcon' => $fileName]);
+        }
+
         $row = Category::create($request->all());
         if ($row) {
             $request->session()->flash('success', 'Category Created Successfully');
@@ -123,4 +130,14 @@ class CategorController extends Controller
         }
         return redirect()->route('category.index');
     }
+
+    public function changeUserStatus(Request $request)
+    {
+        $categories = Category::find($request->id);
+        $categories->status = $request->isPrimary;
+        $categories->save();
+
+        return response()->json(['success'=>'User status change successfully.']);
+    }
+
 }
