@@ -27,7 +27,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{route('category.store')}}" method='POST' >
+
+
+
+                        <form action="{{route('category.store')}}" method='POST' onclick="myfunction()" >
                             @csrf
                             <div class="form-group">
                                 <label for="categoryName">Category Name</label>
@@ -36,28 +39,63 @@
                                 <p class="text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
+
+
+                                    <div class="form-group">
+                                        <label for="categoryIcon">Category Icon</label>
+                                        <input type="file" class="form-control" placeholder="Select Category Icon " name="categoryIcon" id="categoryIcon"  >
+                                        @error('categoryIcon')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="slug">Slug</label>
+                                        <input type="text" class="form-control" name="slug" id="slug"  >
+                                        @error('slug')
+                                        <p class="text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+
+
                             <div class="form-group">
-                                <label for="isActive">Status</label>
+                                <label for="isActive">Is Active</label>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio"  name='isActive' id="active" value="1">Active
                                     <input class="form-check-input" type="radio" name='isActive' id="deactive" value="0" checked>
                                     Deactive
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="isTrending">Is Trending</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio"  name='isTrending' id="active" value="1">Yes
+                                        <input class="form-check-input" type="radio" name='isTrending' id="deactive" value="0" checked>
+                                        No
+                                    </div>
+                                </div>
 
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" value="save" class="btn btn-primary">
 
+                                </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <div class="form-group">
-                            <input type="submit" value="save" class="btn btn-primary">
 
-                        </div>
+
+                        </form>
+
                     </div>
+{{--                    <div class="modal-footer">--}}
+{{--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <input type="submit" value="save" class="btn btn-primary">--}}
+
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
+
         </div>
         <!-- model end-->
 
@@ -138,3 +176,26 @@
 
 @endsection
 
+@section('js')
+    <script>
+        function myfunction(){
+    $(document).ready(function(){
+    $('button').click(function(event){
+    event.preventDefault();
+    var	categoryName = $('#categoryName').val();
+    var	isActive = $('#isActive').val();
+
+    $.ajax({
+    type: "POST",
+    url: "upload.php",
+    data: { categoryName:categoryName, isActive:isActive },
+    dataType: "json",
+    success: function(result){
+    }
+    });
+    });
+    });
+        }
+    </script>
+
+@endsection
