@@ -98,13 +98,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="users/create" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add User</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{url('users')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>User list</p>
                             </a>
@@ -123,21 +123,21 @@
 
                         </p>
                     </a>
-{{--                    <ul class="nav nav-treeview">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('category.create')}} " class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Add category</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a href="{{route('category.index')}}" class="nav-link">--}}
-{{--                                <i class="far fa-circle nav-icon"></i>--}}
-{{--                                <p>Category list</p>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                           <a href="{{route('category.create')}} " class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                                <p>Add category</p>
+                            </a>
+                      </li>
+                       <li class="nav-item">
+                            <a href="{{route('category.index')}}" class="nav-link">
+                              <i class="far fa-circle nav-icon"></i>
+                               <p>Category list</p>
+                            </a>
+                       </li>
 
-{{--                    </ul>--}}
+                   </ul>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

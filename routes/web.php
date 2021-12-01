@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::resource('category',CategorController::class);
+Route::resource('category',CategoryController::class);
 Route::resource('role',RoleController::class);
+
+
+Route::resource('users', UserController::class);
+Route::get('users',[UserController::class,'index']);
+Route::get('users/edit/{id}',[UserController::class,'edit']);
+Route::put('/users/update',[UserController::class,'update'])->name('user.update');
+Route::put('/users/show',[UserController::class,'show'])->name('user.show');
