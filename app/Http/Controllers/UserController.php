@@ -75,7 +75,7 @@ class UserController extends Controller
         return redirect('users')->with('success','User created Successfully');
     
 
- 
+        
 
     }
     

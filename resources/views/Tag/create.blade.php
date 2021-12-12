@@ -1,17 +1,20 @@
- 
- @extends('layouts.backend')
-  @section('content')
-  <html lang="en">
-  <head>
-    <title>Laravel 7 Image Upload tutorial example - XpertPhp</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-   <div class="container">
+
+@extends('layouts.backend')
+
+@section('content')
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Add Tags
+                            <a href="{{url('tags')}}" class="btn btn-success">Tag Lists</a>
+                        </h1>
+                        
+                    </div>
+                      <div class="container">
    <div class="row">
    <div class="col-lg-12">
    @if ($message = Session::get('success'))
@@ -32,7 +35,14 @@
    @endif
    </div>
    </div> 
-   
+                      
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card">
+
+                <div class="card-body">
 
 <!DOCTYPE html>
 <html>
@@ -51,6 +61,7 @@ input[type=text], select, textarea {
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
+  
 }
 input[type=email], select, textarea {
   width: 100%;
@@ -61,6 +72,7 @@ input[type=email], select, textarea {
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
+  
 }
 input[type=password], select, textarea {
   width: 100%;
@@ -71,6 +83,7 @@ input[type=password], select, textarea {
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
+  
 }
 input[type=submit] {
   background-color: #04AA6D;
@@ -93,31 +106,26 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-
-
-
 <div class="container">
 
-<form action="{{url('users')}}"method="post"autocomplete="off"class="form"enctype="multipart/form-data">
+<form action="{{url('store')}}"method="post"autocomplete="off"class="form"enctype="multipart/form-data">
 	
-	FullName:
-	<input type="text" name="fullname"><br>
-  Email:
-  <input type="email" name="email"><br>
-  Password:
-  <input type="password" name="password"><br>
-	Daily Target:
-	<input type="text" name="dailytarget"><br>
-  Role_Id:
-  <input type="text" name="role_id"><br>
-	IsActivated:
-  <select name="isactivated"value=''>
-	<option value="1">Enable</option>
-  <option value="0">Disable</option>
-</select>
-Image:
-  <input type="file" name="image" class="form-control">
-<br>
+	ID:<span></span>
+	<input type="text" name="id"><br>
+  TagName:
+  <input type="text" name="tagName"><br>
+  Slug:
+  <input type="text" name="slug" ><br>
+  IsTrending :
+  <select name="isTrending">
+	<option value="1">Yes</option>
+    <option value="0">No</option>
+  </select><br>
+  IsVisible:
+  <select name="isVisible">
+  <option value="1">Active</option>
+  <option value="0">Deactive</option>
+  </select><br>
 	<input type="submit" name="submit">
 	{{csrf_field()}}
 </form>
@@ -127,4 +135,20 @@ Image:
 </body>
 </html>
 </div>
-@endsection()
+
+
+                 
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+                <!-- /.card -->
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+
+@endsection
+

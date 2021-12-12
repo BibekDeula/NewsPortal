@@ -1,3 +1,4 @@
+
 @extends('layouts.backend')
 @section('content')
 <!DOCTYPE html>
@@ -16,7 +17,7 @@
 <div class="container">
 <html lang="en">
 <head>
-  <title>Laravel 7 Image Upload tutorial example - XpertPhp</title>
+  <title>News</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -51,7 +52,7 @@
    </div>
    @endif
    </div>
-   </div> 
+
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">+ Add Users </button>
 
@@ -72,10 +73,6 @@
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -135,14 +132,13 @@ input[type=submit]:hover {
 </head>
 <body>
 
-
-
 <div class="container">
 
-<form action="{{url('users')}}"method="post"autocomplete="off"class="form"enctype="multipart/form-data">
+<form action="{{url('users')}}"method="post"autocomplete="off"class="form"enctype="multipart/form-data"id="hello">
   
   FullName:
   <input type="text" name="fullname"><br>
+ 
   Email:
   <input type="email" name="email"><br>
   Password:
@@ -187,32 +183,32 @@ Image:
 <html>
 <head>
 <style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  #customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+  #customers tr:hover {background-color: #ddd;}
 
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #1569C7;
-  color: white;
-}
-</style>
-<!DOCTYPE html>
-<html>
-<head>
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1569C7;
+    color: white;
+  }
+  </style>
+  <!DOCTYPE html>
+  <html>
+  <head>
 <style>
 .button {
   display: inline-block;
@@ -260,7 +256,7 @@ Image:
 		@foreach($datas as $data)
 		<tr>
 		<td>{{$data->id}}     	</td>
-		<td><a href="{{url('users',$data->id)}}l"style="color:blue;text-decoration:none">{{$data->fullname}}</a></td>
+		<td><a href="{{url('users',$data->id)}}"style="color:blue;text-decoration:none">{{$data->fullname}}</a></td>
 		<td>{{$data->email}}</td>
     <td>{{$data->dailytarget}}</td>
     <td><img src="{{asset('images')}}/{{$data->image}}"width="100px"height="10%"></td>
@@ -276,13 +272,16 @@ Image:
                                           
                                         @endif
 		@endforeach
-		
+	
 </td>	</tr></td></td></tr></table>
 		
 		<td>
 		
 </div>
+    
 	</tr>
 
 
 	@endsection()
+  
+</html>
